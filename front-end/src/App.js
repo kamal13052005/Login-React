@@ -19,8 +19,9 @@ function App() {
   }
 
   function check() {
-const API_URL = "https://your-backend-service.onrender.com/login";
-var logindetails = axios.post(API_URL, { "username": user, "password": pass })
+    const API_URL = "http://localhost:5000/login" 
+
+    axios.post(API_URL, { "username": user, "password": pass })
     .then(function (data) {
       if (data.data === true) {
         navigate("/success")
