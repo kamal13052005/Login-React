@@ -6,7 +6,6 @@ import './style.css'
 function App() {
   const navigate = useNavigate()
   
-  // States for the input boxes
   const [user, setUser] = useState("")
   const [pass, setPass] = useState("")
 
@@ -27,17 +26,16 @@ function App() {
         navigate("/success")
       }
       else {
-        // Clear inputs if login fails
         setUser("")
         setPass("")
         navigate("/fail")
       }
     })
     .catch(function (error) {
-      console.error("The Ninja server is not responding:", error);
-      alert("Connection failed! Check if your backend is running.");
+      console.error("Error:", error);
+      alert("Connection failed!");
     })
-  }
+  } // <--- This closes the check function
 
   return (
     <div className="login-container">
@@ -66,6 +64,5 @@ function App() {
       <button onClick={check} id="validsub">Log In</button>
     </div>
   )
-}
-
+} 
 export default App
